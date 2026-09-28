@@ -18,7 +18,7 @@ you need install the following dependencies:
 ```
 Python
 pip
-numpy
+numpy-financial
 matplotlib
 ```
 
@@ -38,10 +38,10 @@ $ sudo apt update
 $ sudo apt install python3-pip
 ```
 
-numpy installation
+numpy-financial installation (NumPy removed its financial functions in version 1.20)
 
 ```
-$ sudo apt install python3-numpy
+$ pip3 install numpy-financial
 ```
 
 matplotlib installation
@@ -53,7 +53,9 @@ $ sudo apt install python3-matplotlib
 
 ## Running the tests
 
-run the file project.py in the directory <../src>
+run the file project.py in the directory <../src> (works from any directory)
 ```
-$ python3 project.py
+$ python3 src/project.py
 ```
+
+Enter MARR as a decimal, for example 0.1 for 10%.

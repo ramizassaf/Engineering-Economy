@@ -1,5 +1,6 @@
 
-import numpy as np
+import os
+import numpy_financial as npf
 import matplotlib.pyplot as plt
 
 
@@ -16,25 +17,25 @@ def __readFile(filePath):
 # __getPresentWorth:: return the net present worth
 ############################################################
 def __getPresentWorth(mylist, MARR):
-	return np.npv(float (MARR), mylist)
+	return npf.npv(float (MARR), mylist)
 
 ############################################################
 # __getFutureWorth:: return the net future worth
 ############################################################
 def __getFutureWorth(MARR, nper, pv):
-	return np.fv(float (MARR), nper, 0, pv)
+	return npf.fv(float (MARR), nper, 0, pv)
 
 ############################################################
 # __getAnnualWorth:: return the net Annual worth
 ############################################################
 def __getAnnualWorth(MARR, nper, pv):
-	return np.pmt(float (MARR), nper, pv)
+	return npf.pmt(float (MARR), nper, pv)
 
 ############################################################
 # __getIRR:: return the internal rate of return
 ############################################################
 def __getIRR(mylist):
-	return np.irr(mylist)
+	return npf.irr(mylist)
 
 ############################################################
 # __compare:: return the greatest value of two
@@ -58,26 +59,29 @@ print('============================================================')
 # Read MARR from user
 MARR =  float (input("Please input MARR:: "))
 
-# lists to hold each alternative's data
-data_1 = []		
-data_2 = []
+# read data of each alternative, relative to this script's location
+dataDir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data")
+data_1 = __readFile(os.path.join(dataDir, "data_1.txt"))
+data_2 = __readFile(os.path.join(dataDir, "data_2.txt"))
 
-# read data of each alternative
-data_1 = __readFile("../data/data_1.txt")
-data_2 = __readFile("../data/data_2.txt")
+if len(data_1) != len(data_2):
+	raise SystemExit("Error: both alternatives must have the same number of cash flows")
+
+# study period in years (first value is year 0)
+nper = len(data_1) - 1
 
 # calculate Present, Future & Annual Worth for each method
 pw_1 = __getPresentWorth(data_1, MARR)
 pw_2 = __getPresentWorth(data_2, MARR)
-fw_1 = __getFutureWorth(MARR, 10, -1*pw_1)
-fw_2 = __getFutureWorth(MARR, 10, -1*pw_2)
-aw_1 = __getAnnualWorth(MARR, 10, -1*pw_1)
-aw_2 = __getAnnualWorth(MARR, 10, -1*pw_2)
+fw_1 = __getFutureWorth(MARR, nper, -1*pw_1)
+fw_2 = __getFutureWorth(MARR, nper, -1*pw_2)
+aw_1 = __getAnnualWorth(MARR, nper, -1*pw_1)
+aw_2 = __getAnnualWorth(MARR, nper, -1*pw_2)
 
 # plot the CFD of each alternative
-x_axis = [0,1,2,3,4,5,6,7,8,9,10]
+x_axis = list(range(nper + 1))
 plt.figure()
-plt.hist(x_axis, bins=10,weights =data_1, histtype='bar', color = 'r', ec='black')
+plt.bar(x_axis, data_1, color = 'r', ec='black')
 plt.xticks(x_axis)
 
 plt.title('Alternative 1:Cash Flow')
@@ -85,7 +89,7 @@ plt.xlabel('Years')
 plt.ylabel('Value')
 
 plt.figure()
-plt.hist(x_axis, bins=10, weights = data_2, histtype='bar', color = 'r', ec='black')
+plt.bar(x_axis, data_2, color = 'r', ec='black')
 plt.xticks(x_axis)
 
 plt.title('Alternative 2:Cash Flow')
@@ -105,7 +109,7 @@ if __compare(pw_1, pw_2) == 1:
 	print("Alternative 1 is recommended over alternative 2")
 	print("reason: ALT-1 has more present value than ALT_2")
 elif __compare(pw_1, pw_2) == 0:
-	print("[PW_2:: ", pw_1, "]>", "[PW_1:: ", pw_2, "]")
+	print("[PW_2:: ", pw_2, "]>", "[PW_1:: ", pw_1, "]")
 	print("Alternative 2 is recommended over alternative 1")
 	print("reason: ALT-2 has more present value than ALT_1")
 
@@ -128,8 +132,8 @@ if __compare(aw_1, aw_2) == 1:
 	print("[AW_1:: ", aw_1, "]>", "[AW_2:: ", aw_2, "]")
 	print("Alternative 1 is recommended over alternative 2")
 	print("reason: ALT-1 has more annual value than ALT_2")
-elif __compare(fw_1, fw_2) == 0:
-	print("[AW_2:: ", aw_2, "]>", "AW_1:: ", aw_1, "]")
+elif __compare(aw_1, aw_2) == 0:
+	print("[AW_2:: ", aw_2, "]>", "[AW_1:: ", aw_1, "]")
 	print("Alternative 2 is recommended over alternative 1")
 	print("reason: ALT-2 has more annual value than ALT_1")
 
