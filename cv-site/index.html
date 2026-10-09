@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ramiz Assaf | CV</title>
+<meta name="description" content="Ramiz Assaf, Data Professional and Industrial Engineer based in Nablus, Palestine.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f7f5;
+    --card: #ffffff;
+    --text: #1b1d21;
+    --muted: #5d636e;
+    --line: #e4e4e0;
+    --accent: #1f6f5c;
+    --accent-soft: #e3f1ed;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121417;
+      --card: #1a1d21;
+      --text: #e8e9eb;
+      --muted: #9aa1ac;
+      --line: #2a2e34;
+      --accent: #5cc4a6;
+      --accent-soft: #1d3530;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 48px 16px 64px; }
+  header { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; margin-bottom: 40px; }
+  header img { width: 112px; height: 112px; border-radius: 50%; border: 3px solid var(--card); box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+  h1 { margin: 0; font-size: 2.1rem; letter-spacing: -0.02em; }
+  .role { margin: 4px 0 10px; color: var(--accent); font-weight: 600; }
+  .meta { color: var(--muted); font-size: .95rem; }
+  .links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+  .links a, .btn {
+    display: inline-block; padding: 6px 14px; border-radius: 999px;
+    border: 1px solid var(--line); background: var(--card);
+    color: var(--text); text-decoration: none; font-size: .9rem; font-weight: 500;
+  }
+  .links a:hover, .btn:hover { border-color: var(--accent); color: var(--accent); }
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 24px 24px 20px; margin-bottom: 20px; }
+  h2 { margin: 0 0 14px; font-size: .8rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); }
+  .item { padding: 12px 0; border-top: 1px solid var(--line); }
+  .item:first-of-type { border-top: 0; padding-top: 0; }
+  .item-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .item h3 { margin: 0; font-size: 1.05rem; }
+  .item h3 a { color: var(--text); text-decoration: none; }
+  .item h3 a:hover { color: var(--accent); }
+  .when { color: var(--muted); font-size: .9rem; white-space: nowrap; }
+  .item p { margin: 4px 0 0; color: var(--muted); }
+  .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag { background: var(--accent-soft); color: var(--accent); padding: 4px 12px; border-radius: 999px; font-size: .88rem; font-weight: 500; }
+  .todo { color: #b45309; font-style: italic; }
+  footer { text-align: center; color: var(--muted); font-size: .85rem; margin-top: 32px; }
+  @media print {
+    body { background: #fff; }
+    section { border: 0; padding: 0 0 12px; }
+    .links, .print-btn { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <img src="https://avatars.githubusercontent.com/u/45326257?v=4" alt="Ramiz Assaf">
+    <div>
+      <h1>Ramiz Assaf</h1>
+      <div class="role">Data Professional and Industrial Engineer</div>
+      <div class="meta">Nablus, Palestine · An-Najah National University</div>
+      <div class="links">
+        <a href="mailto:ramizassaf@gmail.com">Email</a>
+        <a href="https://github.com/ramizassaf">GitHub</a>
+        <a href="https://www.linkedin.com/in/YOUR-LINKEDIN">LinkedIn</a>
+        <a class="print-btn" href="#" onclick="window.print();return false;">Download PDF</a>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <h2>About</h2>
+    <p>Industrial engineer working with data. I build analysis tools for engineering economics, statistics, and operations decisions, and I publish them as open-source code and web apps.</p>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <div class="item">
+      <div class="item-head"><h3>Job title, Organization</h3><span class="when">Start to End</span></div>
+      <p class="todo">Add your role, responsibilities, and results with numbers.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="item">
+      <div class="item-head"><h3>Degree, An-Najah National University</h3><span class="when">Year</span></div>
+      <p class="todo">Add your degree, major, and graduation year.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    <div class="item">
+      <div class="item-head"><h3><a href="https://github.com/ramizassaf/normal-cdf-piecewise-linear">Normal CDF Piecewise-Linear Approximation</a></h3><span class="when">2026</span></div>
+      <p>Accuracy versus complexity analysis of piecewise-linear approximations of the standard normal CDF. Minimax optimisation, white paper, and interactive app.</p>
+    </div>
+    <div class="item">
+      <div class="item-head"><h3><a href="https://github.com/ramizassaf/break-even-location-finder">Break-Even Location Finder</a></h3><span class="when">2026</span></div>
+      <p>Locational break-even analysis. Finds the cheapest alternative at every volume and the break-even quantities. Bilingual web app (English and Arabic) plus Python.</p>
+    </div>
+    <div class="item">
+      <div class="item-head"><h3><a href="https://github.com/ramizassaf/NNU-Industrial-Engineering-Guide">NNU Industrial Engineering Guide</a></h3><span class="when">2026</span></div>
+      <p>Guide for high school students in Palestine who plan to join the Industrial Engineering program at An-Najah National University.</p>
+    </div>
+    <div class="item">
+      <div class="item-head"><h3><a href="https://github.com/ramizassaf/Engineering-Economy">Engineering Economy Analysis</a></h3><span class="when">Python</span></div>
+      <p>Ranks project alternatives by present, future, and annual worth, computes IRR, plots cash flow diagrams, and recommends an alternative.</p>
+    </div>
+    <div class="item">
+      <div class="item-head"><h3><a href="https://github.com/ramizassaf/A-B-Results-Analysis">A/B Test Results Analysis</a></h3><span class="when">2019</span></div>
+      <p>Statistical analysis of A/B test results in Python and Jupyter.</p>
+    </div>
+    <div class="item">
+      <div class="item-head"><h3><a href="https://github.com/ramizassaf/European-football-analysis">European Football Analysis</a></h3><span class="when">2019</span></div>
+      <p>Exploratory data analysis of European football data.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <div class="tags">
+      <span class="tag">Python</span>
+      <span class="tag">NumPy</span>
+      <span class="tag">Matplotlib</span>
+      <span class="tag">Jupyter</span>
+      <span class="tag">R</span>
+      <span class="tag">Statistics</span>
+      <span class="tag">A/B Testing</span>
+      <span class="tag">Engineering Economics</span>
+      <span class="tag">Optimisation</span>
+      <span class="tag">LaTeX</span>
+      <span class="tag">HTML / JavaScript</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Languages</h2>
+    <div class="tags">
+      <span class="tag">Arabic</span>
+      <span class="tag">English</span>
+    </div>
+  </section>
+
+  <footer>© 2026 Ramiz Assaf</footer>
+</div>
+</body>
+</html>
